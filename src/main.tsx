@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 
 import "openblocks-sdk/dist/style.css";
-import "./index.css";
+import "./main.less";
 
 ReactDOM.render(
   <React.StrictMode>

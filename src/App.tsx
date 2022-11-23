@@ -1,4 +1,3 @@
-import { OpenblocksAppView } from "openblocks-sdk";
 import { useEffect } from "react";
 import {
   createHashRouter,
@@ -9,6 +8,8 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
+import { AppDemo } from "./AppDemo";
+import { ModuleDemo } from "./ModuleDemo";
 
 const demos = [
   {
@@ -22,6 +23,13 @@ const demos = [
   {
     title: "Pagination with temporary state demo",
     appId: "6379cdd9f02c6e6ecc1d37ff",
+  },
+  {
+    title: "Use module as ui component",
+    appId: "637dc058a899fe1ffcb1589a",
+    isModule: true,
+    initialMethodName: "clearForm",
+    initialInputs: { formTitle: "Student info" },
   },
 ];
 
@@ -55,17 +63,21 @@ function Root() {
   );
 }
 
-function AppDemo(props: { appId: string }) {
-  return <OpenblocksAppView className="ob-app" appId={props.appId} />;
-}
-
 const routes: RouteObject[] = [
   {
     path: "/",
     element: <Root />,
     children: demos.map((i) => ({
       path: titleToPath(i.title),
-      element: <AppDemo appId={i.appId} />,
+      element: i.isModule ? (
+        <ModuleDemo
+          appId={i.appId}
+          initialModuleInputs={i.initialInputs}
+          initialMethodName={i.initialMethodName}
+        />
+      ) : (
+        <AppDemo appId={i.appId} />
+      ),
     })),
   },
 ];
