@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { AppDemo } from "./AppDemo";
 import { ModuleDemo } from "./ModuleDemo";
+import formDsl from "./dsl/form.json";
 
 const demos = [
   {
@@ -30,6 +31,11 @@ const demos = [
     isModule: true,
     initialMethodName: "clearForm",
     initialInputs: { formTitle: "Student info" },
+  },
+  {
+    title: "Use offline application dsl",
+    dsl: formDsl,
+    isModule: true,
   },
 ];
 
@@ -71,12 +77,13 @@ const routes: RouteObject[] = [
       path: titleToPath(i.title),
       element: i.isModule ? (
         <ModuleDemo
-          appId={i.appId}
+          appId={i.appId || ""}
+          appDsl={i.dsl}
           initialModuleInputs={i.initialInputs}
-          initialMethodName={i.initialMethodName}
+          initialMethodName={i.initialMethodName || ""}
         />
       ) : (
-        <AppDemo appId={i.appId} />
+        <AppDemo appId={i.appId || ""} appDsl={i.dsl} />
       ),
     })),
   },

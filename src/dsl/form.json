@@ -1,0 +1,172 @@
+{
+  "ui": {
+    "compType": "module",
+    "comp": {
+      "io": {
+        "inputs": [],
+        "outputs": [
+          {
+            "description": "",
+            "value": "{{input1.value}}",
+            "name": "nameFieldValue"
+          },
+          {
+            "description": "",
+            "value": "{{input2.value}}",
+            "name": "ageFieldValue"
+          }
+        ]
+      },
+      "methods": [],
+      "events": {
+        "list": [{ "name": "onSubmit", "description": "" }],
+        "enableEventTestMessage": true
+      },
+      "autoScaleCompHeight": false,
+      "container": {
+        "layout": {
+          "fd981a80": { "i": "fd981a80", "h": 5, "w": 24, "x": 0, "y": 0 },
+          "6efa557b": { "i": "6efa557b", "h": 5, "w": 24, "x": 0, "y": 6 },
+          "f8cf25a1": { "i": "f8cf25a1", "h": 5, "w": 10, "x": 14, "y": 12 }
+        },
+        "items": {
+          "fd981a80": {
+            "compType": "input",
+            "comp": {
+              "value": "",
+              "disabled": "",
+              "label": {
+                "text": "Name",
+                "tooltip": "",
+                "hidden": false,
+                "width": "33",
+                "widthUnit": "%",
+                "position": "column",
+                "align": "left"
+              },
+              "placeholder": "Please input your name",
+              "onEvent": [],
+              "readOnly": false,
+              "required": false,
+              "minLength": "",
+              "maxLength": "",
+              "validationType": "Text",
+              "regex": "",
+              "customRule": "",
+              "formDataKey": "",
+              "showCount": false,
+              "allowClear": false,
+              "style": {
+                "label": "",
+                "background": "",
+                "border": "",
+                "radius": "",
+                "text": "",
+                "accent": "",
+                "validate": ""
+              },
+              "prefixIcon": "",
+              "suffixIcon": "",
+              "hidden": ""
+            },
+            "name": "input1"
+          },
+          "6efa557b": {
+            "compType": "input",
+            "comp": {
+              "value": "",
+              "disabled": "",
+              "label": {
+                "text": "Age",
+                "tooltip": "",
+                "hidden": false,
+                "width": "33",
+                "widthUnit": "%",
+                "position": "column",
+                "align": "left"
+              },
+              "placeholder": "Please input your age",
+              "onEvent": [],
+              "readOnly": false,
+              "required": false,
+              "minLength": "",
+              "maxLength": "",
+              "validationType": "Text",
+              "regex": "",
+              "customRule": "",
+              "formDataKey": "",
+              "showCount": false,
+              "allowClear": false,
+              "style": {
+                "label": "",
+                "background": "",
+                "border": "",
+                "radius": "",
+                "text": "",
+                "accent": "",
+                "validate": ""
+              },
+              "prefixIcon": "",
+              "suffixIcon": "",
+              "hidden": ""
+            },
+            "name": "input2"
+          },
+          "f8cf25a1": {
+            "compType": "button",
+            "comp": {
+              "text": "Submit",
+              "type": "",
+              "onEvent": [
+                {
+                  "name": "click",
+                  "handler": {
+                    "compType": "triggerModuleEvent",
+                    "comp": { "name": "onSubmit" },
+                    "condition": "",
+                    "slowdown": "debounce",
+                    "delay": ""
+                  }
+                }
+              ],
+              "disabled": "",
+              "loading": "",
+              "form": "",
+              "prefixIcon": "",
+              "suffixIcon": "",
+              "style": {
+                "background": "",
+                "border": "",
+                "radius": "",
+                "text": ""
+              },
+              "hidden": ""
+            },
+            "name": "button1"
+          }
+        }
+      },
+      "containerSize": { "height": 57, "width": 24 },
+      "containerRowCount": 0,
+      "hidden": ""
+    }
+  },
+  "queries": [],
+  "tempStates": [],
+  "transformers": [],
+  "hooks": [
+    { "compType": "urlParams", "comp": {}, "name": "url" },
+    { "compType": "momentJsLib", "comp": {}, "name": "moment" },
+    { "compType": "lodashJsLib", "comp": {}, "name": "_" },
+    { "compType": "utils", "comp": {}, "name": "utils" },
+    { "compType": "message", "comp": {}, "name": "message" },
+    { "compType": "localStorage", "comp": {}, "name": "localStorage" },
+    { "compType": "currentUser", "comp": {}, "name": "currentUser" }
+  ],
+  "settings": {
+    "maxWidth": { "dropdown": "1920", "input": "" },
+    "themeId": "default",
+    "customShortcuts": []
+  },
+  "preload": { "libs": [], "script": "", "css": "" }
+}

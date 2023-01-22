@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 
 interface IProps {
   appId: string;
+  appDsl?: any;
   initialModuleInputs: any;
   initialMethodName: string;
 }
@@ -84,6 +85,7 @@ export function ModuleDemo(props: IProps) {
             onModuleEventTriggered={handleEventTriggered}
             moduleInputs={inputs}
             appId={props.appId}
+            appDsl={props.appDsl}
             ref={instanceRef}
           />
         </div>
