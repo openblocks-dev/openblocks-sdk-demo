@@ -17,7 +17,37 @@
           }
         ]
       },
-      "methods": [],
+      "methods": [
+        {
+          "name": "setNameFieldValue",
+          "action": {
+            "compType": "executeComp",
+            "comp": {
+              "name": "input1",
+              "methodName": "setValue",
+              "params": [
+                {
+                  "compType": "string",
+                  "comp": "{{nameFieldValue}}",
+                  "name": "value"
+                }
+              ]
+            },
+            "condition": "",
+            "slowdown": "debounce",
+            "delay": ""
+          },
+          "params": [
+            {
+              "name": "nameFieldValue",
+              "description": "",
+              "type": "JSONValue",
+              "defaultValue": { "compType": "JSONValue", "comp": "" },
+              "test": { "compType": "JSONValue", "comp": "" }
+            }
+          ]
+        }
+      ],
       "events": {
         "list": [{ "name": "onSubmit", "description": "" }],
         "enableEventTestMessage": true

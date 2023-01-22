@@ -6,11 +6,13 @@ interface IProps {
   appDsl?: any;
   initialModuleInputs: any;
   initialMethodName: string;
+  initialMethodParams?: string;
 }
 
 export function ModuleDemo(props: IProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const methodInputRef = useRef<HTMLInputElement>(null);
+  const methodParamsInputRef = useRef<HTMLInputElement>(null);
   const instanceRef = useRef<AppViewInstance<any, any>>(null);
   const [inputs, setInputs] = useState<any>(props.initialModuleInputs);
   const [outputs, setOutputs] = useState<any>({});
@@ -29,10 +31,21 @@ export function ModuleDemo(props: IProps) {
 
   const handleInvokeMethod = () => {
     const methodName = methodInputRef.current?.value;
+    const paramsJson = methodParamsInputRef.current?.value;
+
     if (!methodName) {
       return;
     }
-    instanceRef.current?.invokeMethod(methodName);
+
+    let params = [];
+    if (paramsJson) {
+      try {
+        params = JSON.parse(paramsJson);
+      } catch {
+        params = [];
+      }
+    }
+    instanceRef.current?.invokeMethod(methodName, params);
   };
 
   return (
@@ -61,9 +74,16 @@ export function ModuleDemo(props: IProps) {
           <div>
             <strong>invoke method</strong>
             <input
+              style={{ marginBottom: 8 }}
               ref={methodInputRef}
               defaultValue={props.initialMethodName}
               placeholder="input module method name"
+            />
+            <span>json array of params, like: ["param1", "param2"]</span>
+            <input
+              ref={methodParamsInputRef}
+              defaultValue={props.initialMethodParams}
+              placeholder="method params"
             />
             <button onClick={handleInvokeMethod}>invoke</button>
           </div>

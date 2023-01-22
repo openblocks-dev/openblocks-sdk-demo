@@ -36,6 +36,8 @@ const demos = [
     title: "Use offline application dsl",
     dsl: formDsl,
     isModule: true,
+    initialMethodName: "setNameFieldValue",
+    initialMethodParams: JSON.stringify(["Tom"]),
   },
 ];
 
@@ -73,17 +75,19 @@ const routes: RouteObject[] = [
   {
     path: "/",
     element: <Root />,
-    children: demos.map((i) => ({
+    children: demos.map((i, idx) => ({
       path: titleToPath(i.title),
       element: i.isModule ? (
         <ModuleDemo
+          key={idx}
           appId={i.appId || ""}
           appDsl={i.dsl}
           initialModuleInputs={i.initialInputs}
           initialMethodName={i.initialMethodName || ""}
+          initialMethodParams={i.initialMethodParams}
         />
       ) : (
-        <AppDemo appId={i.appId || ""} appDsl={i.dsl} />
+        <AppDemo key={idx} appId={i.appId || ""} appDsl={i.dsl} />
       ),
     })),
   },
